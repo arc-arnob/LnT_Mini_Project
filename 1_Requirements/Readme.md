@@ -1,6 +1,6 @@
 # Requirements
 ## Introduction
- --- TBD 
+ * Hospital Management System is developed to manage patients effectively. This project is mainly to simulate SDLC process in the most clear way possible. This topic was chosen because it gives me an opportunity to implement efficient data structures and provides me flexibilty to understand multiple C programming concepts.
 
 ## Research
 ![Description](Link to Pic)
