@@ -32,9 +32,9 @@ Create Patient Record |
 ## Defining Our System
 ### Certain assumptions:
 * Few systems already exists with which our system will interact
-    * 1. Hospital Management Application
-    * 2. Analytics System
-    * 3. Emergency Services
+    * Hospital Management Application
+    * Analytics System
+    * Emergency Services
 ## SWOT ANALYSIS
 ![SWOT Analysis](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/swot.png)
 
