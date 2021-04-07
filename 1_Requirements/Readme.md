@@ -27,11 +27,12 @@ Practice management software offers charting modules to keep patient data, chart
 
 ## Cost and Features
 ![Description](Link to Pic)
--- Content 
+Feature | Cost | Time
+Create Patient Record | 
 ## Defining Our System
     -- TBD
 ## SWOT ANALYSIS
-![SWOT-Sample](Link to Pic)
+![SWOT Analysis](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/swot.png)
 
 # 4W&#39;s and 1&#39;H
 
