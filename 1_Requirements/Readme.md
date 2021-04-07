@@ -9,6 +9,22 @@
 A health care providers main aim is, caring for patients and the buildup of everyday tasks like paperwork, scheduling and billing can get in the way of that. What is patient management software anyway? A patient management system is also known as clinic management software, patient manager software, medical patient software or medical practice management software (MPM). It refers to a number of efficient automated systems designed for tracking patient information, diagnoses, prescriptions, interactions and encounters within healthcare organizations like medical clinics or hospitals.
 
 Some of these software applications focus on general patient management while others address specific processes such as inpatient tracking or blood testing. What they all have in common is that they make your job as a care provider smoother and more manageable.
+
+### Benefits
+Patient management information systems offer a range of benefits to providers big and small. Here are just a few of them:
+
+### Ease burden on staff
+Administrative staffing is one of the big drivers of high healthcare costs. Automating routine processes like patient flow management helps medical clinics and hospitals minimize their administrative expenses.
+
+### Practice Management
+A patient management app helps streamline every element of a medical office including recordkeeping, charting, patient scheduling, claims processing and billing functions.
+
+### Timely Patient Care
+Larger clinics and hospitals can enjoy similar benefits to smaller ones but have the added bonus of making patient-related processes more efficient. Because large practices have a heavy patient flow, the scheduling features of MPM is crucial to operations. Having an organized patient intake flow can mean the difference between a calm, orderly waiting room and a packed hotbed of irritation and frustration.
+
+### Organization
+ractice management software offers charting modules to keep patient data, charts, appointments and billing information together in a single digital file. Digital storage capability saves space for a neater, more welcoming office — not to mention less harried employees. 
+
 ## Cost and Features
 ![Description](Link to Pic)
 -- Content 
