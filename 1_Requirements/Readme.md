@@ -23,7 +23,7 @@ A patient management app helps streamline every element of a medical office incl
 Larger clinics and hospitals can enjoy similar benefits to smaller ones but have the added bonus of making patient-related processes more efficient. Because large practices have a heavy patient flow, the scheduling features of MPM is crucial to operations. Having an organized patient intake flow can mean the difference between a calm, orderly waiting room and a packed hotbed of irritation and frustration.
 
 ### Organization
-ractice management software offers charting modules to keep patient data, charts, appointments and billing information together in a single digital file. Digital storage capability saves space for a neater, more welcoming office — not to mention less harried employees. 
+Practice management software offers charting modules to keep patient data, charts, appointments and billing information together in a single digital file. Digital storage capability saves space for a neater, more welcoming office — not to mention less harried employees. 
 
 ## Cost and Features
 ![Description](Link to Pic)
