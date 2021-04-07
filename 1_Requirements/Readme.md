@@ -26,7 +26,6 @@ Larger clinics and hospitals can enjoy similar benefits to smaller ones but have
 Practice management software offers charting modules to keep patient data, charts, appointments and billing information together in a single digital file. Digital storage capability saves space for a neater, more welcoming office — not to mention less harried employees. 
 
 ## Cost and Features
-![Description](Link to Pic)
 Feature | Cost | Time
 Create Patient Record | 
 ## Defining Our System
@@ -35,6 +34,7 @@ Create Patient Record |
     * Hospital Management Application
     * Analytics System
     * Emergency Services
+![Description](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/system.png)
 ## SWOT ANALYSIS
 ![SWOT Analysis](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/swot.png)
 
