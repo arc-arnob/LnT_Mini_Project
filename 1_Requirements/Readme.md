@@ -7,6 +7,8 @@
 ![Description](Link to Pic)
 ### Patient Management Software System Features and Benefits
 A health care providers main aim is, caring for patients and the buildup of everyday tasks like paperwork, scheduling and billing can get in the way of that. What is patient management software anyway? A patient management system is also known as clinic management software, patient manager software, medical patient software or medical practice management software (MPM). It refers to a number of efficient automated systems designed for tracking patient information, diagnoses, prescriptions, interactions and encounters within healthcare organizations like medical clinics or hospitals.
+
+Some of these software applications focus on general patient management while others address specific processes such as inpatient tracking or blood testing. What they all have in common is that they make your job as a care provider smoother and more manageable.
 ## Cost and Features
 ![Description](Link to Pic)
 -- Content 
