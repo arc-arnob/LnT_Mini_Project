@@ -30,7 +30,11 @@ Practice management software offers charting modules to keep patient data, chart
 Feature | Cost | Time
 Create Patient Record | 
 ## Defining Our System
-    -- TBD
+### Certain assumptions:
+* Few systems already exists with which our system will interact
+    * 1. Hospital Management Application
+    * 2. Analytics System
+    * 3. Emergency Services
 ## SWOT ANALYSIS
 ![SWOT Analysis](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/swot.png)
 
