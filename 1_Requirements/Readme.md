@@ -25,9 +25,11 @@ Larger clinics and hospitals can enjoy similar benefits to smaller ones but have
 ### Organization
 Practice management software offers charting modules to keep patient data, charts, appointments and billing information together in a single digital file. Digital storage capability saves space for a neater, more welcoming office — not to mention less harried employees. 
 
-## Cost and Features
-Feature | Cost | Time
-Create Patient Record | 
+## Cost and Features with Time 
+| Time | Feature | Cost |
+| ----- | ----- | ----- |
+| 10
+
 ## Defining Our System
 ### Certain assumptions:
 * Few systems already exists with which our system will interact
