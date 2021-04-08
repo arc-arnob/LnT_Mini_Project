@@ -72,11 +72,15 @@ Create Patient Record |
 **TBD**
 
 # Detail requirements
-## High Level Requirements:
---- TBD in Tabular Format 
--- ID | Description | Status (Implemented/Future)
-
-
+## High Level Requirements: 
+| ID | Description | Status |
+| ----- | ----- | ------- |
+| HR01 | User shall be able to add new patient record | TBD-S1 |
+| HR02 | User shall be able to read a patient record | TBD-S1 |
+| HR03 | User shall be able to update a patient record | TBD-S1 |
+| HR04 | User shall be able to delete a patient record | TBD-S1 |
+| HR05 | User shall be able to save records in a file | TBD-S1 |
+| HR06 | User shall be able to read data from a file | TBD-S1 |
 ##  Low level Requirements:
 --- TBD in Tabular Format 
 -- ID | Description | Status (Implemented/Future)
