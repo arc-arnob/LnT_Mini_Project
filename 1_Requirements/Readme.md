@@ -74,7 +74,7 @@ Create Patient Record |
 # Detail requirements
 ## High Level Requirements: 
 | ID | Description | Category | Status | 
-| ----- | ----- | ------- |
+| ----- | ----- | ------- | ---------|
 | HR01 | User shall be able to add new patient record | Techincal | TBD-S1 | 
 | HR02 | User shall be able to read a patient record | Techincal | TBD-S1 |
 | HR03 | User shall be able to update a patient record | Techincal | TBD-S1 |
