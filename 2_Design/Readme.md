@@ -2,8 +2,8 @@
 
 ## High Level Design 
 
+![Architecture](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/2_Design/hld_1.png)
 ![Archtecture](Link to Pic)
-![HighLevelBehaviouralDiagram](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/2_Design/hld_1.png)
 
 ## Low Level Design 
 
