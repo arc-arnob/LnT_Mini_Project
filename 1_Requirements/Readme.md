@@ -73,14 +73,16 @@ Create Patient Record |
 
 # Detail requirements
 ## High Level Requirements: 
-| ID | Description | Status |
+| ID | Description | Category | Status | 
 | ----- | ----- | ------- |
-| HR01 | User shall be able to add new patient record | TBD-S1 |
-| HR02 | User shall be able to read a patient record | TBD-S1 |
-| HR03 | User shall be able to update a patient record | TBD-S1 |
-| HR04 | User shall be able to delete a patient record | TBD-S1 |
-| HR05 | User shall be able to save records in a file | TBD-S1 |
-| HR06 | User shall be able to read data from a file | TBD-S1 |
+| HR01 | User shall be able to add new patient record | Techincal | TBD-S1 | 
+| HR02 | User shall be able to read a patient record | Techincal | TBD-S1 |
+| HR03 | User shall be able to update a patient record | Techincal | TBD-S1 |
+| HR04 | User shall be able to delete a patient record | Techincal | TBD-S1 |
+| HR05 | User shall be able to save records in a file | Techincal | TBD-S1 |
+| HR06 | User shall be able to read data from a file | Techincal | TBD-S1 |
+| HR07 | Data should not be lost in case of faliure | Scenario | TBD-S1 |
+| HR08 | Data should always be stored when closing the system | Scenario | TBD-S1 |
 ##  Low level Requirements:
 --- TBD in Tabular Format 
 -- ID | Description | Status (Implemented/Future)
