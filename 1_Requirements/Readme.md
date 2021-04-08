@@ -84,5 +84,7 @@ Create Patient Record |
 | HR07 | Data should not be lost in case of faliure | Scenario | TBD-S1 |
 | HR08 | Data should always be stored when closing the system | Scenario | TBD-S1 |
 ##  Low level Requirements:
---- TBD in Tabular Format 
--- ID | Description | Status (Implemented/Future)
+ 
+| ID | Description | HLR ID | Status (Implemented/Future) |
+| ------ | --------- | ----- | ----- |
+| LR01 | New record shall be added by providing all the asked information and the id should be unique or else patient record should not be accepted. | HR01 | TBD-S1 |
