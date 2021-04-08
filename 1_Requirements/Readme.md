@@ -1,6 +1,6 @@
 # Requirements
 ## Introduction
- * Time and health are two precious comodities hence Hospital Management System is developed to manage patients effectively and improve both effectively. Managing patients at large hospitals and clinics may be a daunting task so to ease the process this system will enable one to perform CRUD operations on patients records and will facilitate a smooth process of the hospital functioning.
+ * During COVID-19 Pnademic, Vaccination is the most effective protection one can give to themselves but managing patients at small hospitals and clinics may be a daunting task as they are not equipped with high end HMS and ERP systems so to ease the process this system will enable one to perform CRUD operations on patients records and will facilitate a smooth process of the hospital functioning.
  * This topic was chosen because it gives me an opportunity to implement efficient data structures and provides me flexibilty to understand multiple C programming concepts.
 
 ## Research
@@ -11,13 +11,14 @@ A health care providers main aim is, caring for patients and the buildup of ever
 Some of these software applications focus on general patient management while others address specific processes such as inpatient tracking or blood testing. What they all have in common is that they make your job as a care provider smoother and more manageable.
 
 ### Benefits
-Patient management information systems offer a range of benefits to providers big and small. Here are just a few of them:
+Patient management information systems offer a range of benefits to providers big and small. Here are 
+just a few of them:
+
+### Better Vaccine Management
+A patient management app helps streamline every element of a medical office including recordkeeping, charting, patient scheduling, claims processing and billing functions.
 
 ### Ease burden on staff
 Administrative staffing is one of the big drivers of high healthcare costs. Automating routine processes like patient flow management helps medical clinics and hospitals minimize their administrative expenses.
-
-### Practice Management
-A patient management app helps streamline every element of a medical office including recordkeeping, charting, patient scheduling, claims processing and billing functions.
 
 ### Timely Patient Care
 Larger clinics and hospitals can enjoy similar benefits to smaller ones but have the added bonus of making patient-related processes more efficient. Because large practices have a heavy patient flow, the scheduling features of MPM is crucial to operations. Having an organized patient intake flow can mean the difference between a calm, orderly waiting room and a packed hotbed of irritation and frustration.
@@ -52,24 +53,19 @@ Create Patient Record |
 # 4W&#39;s and 1&#39;H
 
 ## Who:
-
-**TBD**
+* Small and medium size clinics Providing Covid vaccinations to patients
 
 ## What:
-
-**TBD**
+* Many Clinics are not able to afford high end HMS or ERP systems and hence still depend on manual filing systems. During COVID vaccinations it becomes a tedious task to manage every patient with hand written file system
 
 ## When:
-
-**TBD**
+* This problem began in February 2021, when COVID Vaccination Drive began and small/medium clinics will soon have to administer vaccinations to people.
 
 ## Where:
-
-**TBD**
+* This problem is expected to surface in all states of India.
 
 ## How:
-
-**TBD**
+* This problem may cause ineffective vaccine management and hence there can be a huge amount of vaccine wastage. As per recent data in cities like Noida and Delhi till date 9%-18% vaccines have gone to waste.
 
 # Detail requirements
 ## High Level Requirements: 
