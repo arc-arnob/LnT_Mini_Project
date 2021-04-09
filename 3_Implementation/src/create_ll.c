@@ -21,9 +21,9 @@ patient *create_ll(patient *start,
     strcpy(new_box->firstname, firstname);
     strcpy(new_box->lastname, lastname);
     strcpy(new_box->aadhar_num, aadhar_num);
-    new_box -> height = height;
-    new_box ->weight = weight;
-    new_box ->age = age;
+    new_box-> height = height;
+    new_box->weight = weight;
+    new_box->age = age;
     strcpy(new_box ->date_of_vaccine, date);
     new_box->insurance = insurance;
     new_box->shot = shot;

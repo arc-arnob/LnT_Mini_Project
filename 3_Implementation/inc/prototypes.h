@@ -38,9 +38,7 @@ typedef enum error_t{
 typedef enum vaccine{ //color_b -> vaccine
     RED = 0,
     GREEN,
-    YELLOW,
-    BLUE,
-    VIOLET
+    YELLOW
 }vaccine;
 
 typedef enum insured{
@@ -143,48 +141,8 @@ error_t count_by_vaccine(patient *, vaccine_data *, vaccine); //Count by insuran
  * 
  * @return error_t 
  */
-error_t update_firstname(patient *, int, char *);
+error_t update_record(patient *, int, int, int); // last int is 0 -> prod , 1 -> testing
 
-/**
- * @brief 
- * 
- * @return error_t 
- */
-error_t update_lastname(patient *, int, char *);
-
-/**
- * @brief 
- * 
- * @return error_t 
- */
-error_t update_height(patient *, int, float);
-
-/**
- * @brief 
- * 
- * @return error_t 
- */
-error_t update_weight(patient *, int, float);
-
-/**
- * @brief 
- * 
- * @return error_t 
- */
-error_t update_age(patient *, int, int);
-/**
- * @brief 
- * 
- * @return error_t 
- */
-error_t update_insurance_status(patient *, int, insured);
-
-/**
- * @brief 
- * 
- * @return error_t 
- */
-error_t update_vaccine(patient *, int, vaccine); 
 /**
  * @brief deletes a patient record by id
  * @param[in]  box * Pointer to start node

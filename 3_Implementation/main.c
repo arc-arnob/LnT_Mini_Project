@@ -13,12 +13,14 @@ int main(){
     error_t (*fptr_type2)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = insert_end;
     error_t (*fptr_type3)(patient *) = display_ll;
     error_t (*fptr_type4)(patient *, int, patient *, int *) = find_by_id;
+    error_t (*fptr_type5)(patient *, int, int, int) = update_record;
     int choice;
     while(1)
     {
         printf("Press 1 create a Linked List\n");
         printf("Press 2 to Insert a box at the end\n");
         printf("Press 3 find a patient by Id\n");
+        printf("Press 4 to Update Patient's Record\n");
         printf("Press 10 to display everthing\n");
         printf("Press -1 to exit.\n");
         printf("Enter your choice\n");
@@ -62,6 +64,8 @@ int main(){
                 scanf("%d",&insurance);
                 printf("Enter the name of the vaccine recieved\n");
                 scanf("%d",&shot);
+                printf("Enter the date of vaccination\n");
+                scanf("%s", date);
                 start = (*fptr_type1)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
             }
             if(choice == 2){
@@ -83,6 +87,8 @@ int main(){
                 scanf("%d",&insurance);
                 printf("Enter the name of the vaccine recieved\n");
                 scanf("%d",&shot);
+                printf("Enter the date of vaccination\n");
+                scanf("%s", date);
                 error_t code = (*fptr_type2)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
             
             }
@@ -101,8 +107,33 @@ int main(){
                     printf("Weight: %d\n", res.weight);
                     printf("Insurance Status: %s\n", (res.insurance == 1) ? "Insured" : "Not Insured");
                     printf("Vaccine code: %d\n", res.shot);
+                    printf("Date of vaccination is: %s\n", res.date_of_vaccine);
 
                 }
+            }
+
+            if(choice == 4){
+                printf("Please Enter the patient id:\n");
+                scanf("%d", &id);
+                error_t code = (*fptr_type4)(start, id, &res ,&found);
+                if(found == 1){
+                    printf("Patient Found with id: %d\n", res.uniq_id);
+                    int choice_2;
+                    printf("Please select the field you want to update\n");
+                    printf("Press 1 to update first name\n");
+                    printf("Press 2 to update last name\n");
+                    printf("Press 3 to update age\n");
+                    printf("Press 4 to update height\n");
+                    printf("Press 5 to update weight\n");
+                    printf("Press 6 to update vaccine code\n");
+                    printf("Press 7 to update date of vaccine\n");
+                    scanf("%d", &choice_2);
+                    error_t code = (*fptr_type5)(start, id, choice_2, 0); // 0 is for prod run.
+                    printf("**********Record Updated**********\n");
+                }else{
+                    printf("NO RECORD FOUND\n");
+                }
+                
             }
 
             if(choice == 10){
