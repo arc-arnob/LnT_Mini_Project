@@ -42,5 +42,4 @@ debug:
 
 clean:
 	del *.DAT
-	del *.exe
-	del *.out
+	del *.$(EXEC)
