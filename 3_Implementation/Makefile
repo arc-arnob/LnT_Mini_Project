@@ -24,9 +24,10 @@ endif
 
 all:
 	gcc -I $(INC_H) $(SRC) main.c -o $(PROJ_NAME).$(EXEC)
+	$(PROJ_NAME).$(EXEC)
 
 run:
-	$(PROJ_NAME).exe
+	$(PROJ_NAME).$(EXEC)
 test:
 	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(TEST_PROJ_NAME).$(EXEC)
 
@@ -34,7 +35,12 @@ cppcheck:
 	cppcheck --enable=all $(SRC)
 
 valgrind:
-	valgrind ./$(PROJ_NAME).out
+	valgrind ./$(PROJ_NAME).$(EXEC)
 debug:
-	gcc -I $(INC_H) $(SRC) main.c -g -o $(PROJ_NAME).exe
-	gdb $(PROJ_NAME).exe
+	gcc -I $(INC_H) $(SRC) main.c -g -o $(PROJ_NAME).$(EXEC)
+	gdb $(PROJ_NAME).$(EXEC)
+
+clean:
+	del *.DAT
+	del *.exe
+	del *.out
