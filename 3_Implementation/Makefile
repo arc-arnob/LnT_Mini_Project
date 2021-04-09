@@ -5,7 +5,9 @@ SRC =src/create_ll.c \
 src/display_ll.c \
 src/insert_end.c \
 src/find_by_id.c \
-src/update_record.c
+src/update_record.c \
+src/indexFile.c \
+src/validate_id.c
 
 TEST_SRC = test/test.c \
 unity/unity.c 

@@ -31,11 +31,11 @@ patient *create_ll(patient *start,
 
     if(start == NULL){
         start = new_box;
-        printf("Start is null hence adding creating head");
+    
         return start;
     }
     else{
-        printf("Start is not hence adding at the end");
+        
         insert_end(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
         free(new_box);
         return start;

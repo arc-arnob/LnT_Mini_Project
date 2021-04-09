@@ -2,7 +2,16 @@
 
 
 int main(){
+
+
+    FILE *f = NULL;
+    // Read the file, go to the end, divide by 4(for int) and malloc size for that.
+    error_t indexfile = indexFile("INDEX.DAT","rb+",&f);
+    int lsize = fseek(f,0, SEEK_END);
+    int size = ftell(f);
+    printf("size is %d: \n",size);
     
+
     patient *start = NULL;
     vaccine_data col_data = {0};
     patient res ={0};
@@ -21,6 +30,7 @@ int main(){
         printf("Press 2 to Insert a box at the end\n");
         printf("Press 3 find a patient by Id\n");
         printf("Press 4 to Update Patient's Record\n");
+        printf("Press 5 to save data to file\n");
         printf("Press 10 to display everthing\n");
         printf("Press -1 to exit.\n");
         printf("Enter your choice\n");
@@ -48,6 +58,12 @@ int main(){
             if(choice == 1){
                 printf("Enter Id of patient\n");
                 scanf("%d",&id);
+                //step 1 validation to check existing ids
+                error_t code =  validate_id(&f,id);
+                if(code == ID_EXISTS){
+                    printf("Id already exist, choose something else\n");
+                    continue;
+                }
                 printf("Enter First Name\n");
                 scanf("%s", firstname);
                 printf("Enter the last name\n");
@@ -67,10 +83,23 @@ int main(){
                 printf("Enter the date of vaccination\n");
                 scanf("%s", date);
                 start = (*fptr_type1)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
+                
+
+                // step 2 add index to file if not
+                fwrite(&id,4,1,f);
+                fflush(stdin);
+                
             }
             if(choice == 2){
                 printf("Enter Id of patient\n");
                 scanf("%d",&id);
+                //step 1 validation to check existing ids
+                error_t file_code =  validate_id(&f,id);
+                printf("Error code while inseting end %d\n ",file_code);
+                if(file_code == ID_EXISTS){
+                    printf("Id already exists, choose something else\n");
+                    continue;
+                }
                 printf("Enter First Name\n");
                 scanf("%s", firstname);
                 printf("Enter the last name\n");
@@ -90,7 +119,9 @@ int main(){
                 printf("Enter the date of vaccination\n");
                 scanf("%s", date);
                 error_t code = (*fptr_type2)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
-            
+                // step 2 add index to file if not
+                fwrite(&id,4,1,f);
+                fflush(stdin);
             }
 
             if(choice == 3){
@@ -141,13 +172,15 @@ int main(){
                 (*fptr_type3)(start);
         
             }
+            
         }
 
         
   
   
-  
+    
     }
+    fclose(f);
     
     //delete_all(start);
     

@@ -17,6 +17,8 @@
 //#include<conio.h>
 #include<malloc.h>
 #include<string.h>
+#include<stdlib.h>
+
 
 /**
  * @brief Error values for unit testing
@@ -28,7 +30,8 @@ typedef enum error_t{
     START_EXISTS=1,
     NO_HEAD_EXIST=2,
     DATE_INCORRECT=3,
-    INVALID_NAME=4
+    INVALID_NAME=4,
+    ID_EXISTS=5
 }error_t;
 
 /**
@@ -164,6 +167,24 @@ void delete_all(patient *);
  * @return box* 
  */
 patient *delete_beg(patient *);
+
+/**
+ * @brief This validates that patient id is unique
+ * 
+ * @param fptr 
+ * @return error_t 
+ */
+error_t validate_id(FILE **fptr, int);
+
+/**
+ * @brief this file opens and read ids stored.
+ * 
+ * @param addr 
+ * @param mode 
+ * @param fptr 
+ * @return error_t 
+ */
+error_t indexFile(char *addr, char *mode ,FILE **fptr);
 
 #endif
 
