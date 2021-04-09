@@ -6,23 +6,19 @@ int main(){
     patient *start = NULL;
     vaccine_data col_data = {0};
     patient res ={0};
+    int found;
 
     // Declaring Function Pointers
     patient *(*fptr_type1)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = create_ll;
     error_t (*fptr_type2)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = insert_end;
     error_t (*fptr_type3)(patient *) = display_ll;
+    error_t (*fptr_type4)(patient *, int, patient *, int *) = find_by_id;
     int choice;
     while(1)
     {
         printf("Press 1 create a Linked List\n");
         printf("Press 2 to Insert a box at the end\n");
-        printf("Press 3 find Average volume of all boxes\n");
-        printf("Press 4 Count boxes by a given color\n");
-        printf("Press 5 to Delete a box\n");
-        printf("Press 6 to find a box by id\n");
-        printf("Press 7 find box with max height\n");
-        printf("Press 8 find min max volume diff\n");
-        printf("Press 9 update weight of a box\n");
+        printf("Press 3 find a patient by Id\n");
         printf("Press 10 to display everthing\n");
         printf("Press -1 to exit.\n");
         printf("Enter your choice\n");
@@ -90,7 +86,24 @@ int main(){
                 error_t code = (*fptr_type2)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
             
             }
-        
+
+            if(choice == 3){
+                printf("Please enter the id of the patient\n");
+                scanf("%d", &id); // perform validation
+                error_t code = (*fptr_type4)(start, id, &res, &found);
+                if(found == 1){
+                    printf("Patient Record Found\n");
+                    printf("first Name: %s\n", res.firstname);
+                    printf("last Name: %s\n", res.lastname);
+                    printf("Aadhar Number: %s\n", res.aadhar_num);
+                    printf("age: %d\n", res.age);
+                    printf("Height: %d\n", res.height);
+                    printf("Weight: %d\n", res.weight);
+                    printf("Insurance Status: %s\n", (res.insurance == 1) ? "Insured" : "Not Insured");
+                    printf("Vaccine code: %d\n", res.shot);
+
+                }
+            }
 
             if(choice == 10){
                 printf("%d", start->uniq_id);

@@ -118,7 +118,7 @@ error_t insert_end(patient *,int, char *, char *, char *, float, float,int,char 
  * @param[in]  int id to be found
  * @return error_t 
  */
-error_t find_by_id(patient *, int, patient *);
+error_t find_by_id(patient *, int, patient *, int *);
 
 /**
  * @brief counts all boxes of specific color
