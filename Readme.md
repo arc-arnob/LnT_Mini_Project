@@ -1,4 +1,4 @@
-# SDLC Activity Based Learning - NOTE: WORKFLOW IS NOT UPDATED, STILL USING PRITHVI SIR'S CODE.
+# SDLC Activity Based Learning
 ![Banner](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/1_Requirements/banner.png)
 
 Visit [Pages for Report -optional](using github.io option)
