@@ -59,6 +59,7 @@ int main(){
                 printf("Enter Id of patient\n");
                 scanf("%d",&id);
                 //step 1 validation to check existing ids
+                rewind(f);
                 error_t code =  validate_id(&f,id);
                 if(code == ID_EXISTS){
                     printf("Id already exist, choose something else\n");
@@ -86,6 +87,7 @@ int main(){
                 
 
                 // step 2 add index to file if not
+                fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
                 fflush(stdin);
                 
@@ -94,8 +96,8 @@ int main(){
                 printf("Enter Id of patient\n");
                 scanf("%d",&id);
                 //step 1 validation to check existing ids
+                rewind(f);
                 error_t file_code =  validate_id(&f,id);
-                printf("Error code while inseting end %d\n ",file_code);
                 if(file_code == ID_EXISTS){
                     printf("Id already exists, choose something else\n");
                     continue;
@@ -120,6 +122,7 @@ int main(){
                 scanf("%s", date);
                 error_t code = (*fptr_type2)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
                 // step 2 add index to file if not
+                fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
                 fflush(stdin);
             }
