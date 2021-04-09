@@ -137,8 +137,8 @@ int main(){
                     printf("last Name: %s\n", res.lastname);
                     printf("Aadhar Number: %s\n", res.aadhar_num);
                     printf("age: %d\n", res.age);
-                    printf("Height: %d\n", res.height);
-                    printf("Weight: %d\n", res.weight);
+                    printf("Height: %f\n", res.height);
+                    printf("Weight: %f\n", res.weight);
                     printf("Insurance Status: %s\n", (res.insurance == 1) ? "Insured" : "Not Insured");
                     printf("Vaccine code: %d\n", res.shot);
                     printf("Date of vaccination is: %s\n", res.date_of_vaccine);

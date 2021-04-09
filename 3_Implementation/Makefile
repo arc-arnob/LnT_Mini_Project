@@ -24,7 +24,7 @@ endif
 
 all:
 	gcc -I $(INC_H) $(SRC) main.c -o $(PROJ_NAME).$(EXEC)
-	$(PROJ_NAME).$(EXEC)
+	
 
 run:
 	$(PROJ_NAME).$(EXEC)
