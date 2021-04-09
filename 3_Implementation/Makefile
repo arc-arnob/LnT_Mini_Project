@@ -28,7 +28,7 @@ all:
 run:
 	$(PROJ_NAME).exe
 test:
-	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(TEST_PROJ_NAME).exe
+	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(TEST_PROJ_NAME).$(EXEC)
 
 cppcheck:
 	cppcheck --enable=all $(SRC)
