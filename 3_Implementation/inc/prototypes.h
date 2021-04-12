@@ -185,6 +185,7 @@ patient *delete_beg(patient *);
  * @brief This validates that patient id is unique
  * 
  * @param fptr 
+ * @param int
  * @return error_t 
  */
 error_t validate_id(FILE **fptr, int);
