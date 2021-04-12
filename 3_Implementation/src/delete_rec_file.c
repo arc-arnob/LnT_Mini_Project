@@ -26,6 +26,7 @@ error_t delete_index_file(FILE **fptr,FILE **ft, int id){
         }
         
     }
+    fclose(*ft);
     return SUCCESS;
 
 }

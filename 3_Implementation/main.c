@@ -241,7 +241,7 @@ int main(){
 
                     //Updating INDEX file
                     error_t del_idx_code = delete_index_file(&f,&rt,id);
-                    fclose(rt);
+                    //fclose(rt);
                     fclose(f);
                     remove("INDEX.DAT");
                     rename("TEMP.DAT", "INDEX.DAT");
@@ -252,7 +252,7 @@ int main(){
                     error_t del_code = delete_rec_file(&r,&rt,id);
                     
                     // Updating RECORD file
-                    fclose(rt);
+                    //fclose(rt);
                     fclose(r);
                     remove("RECORD.DAT");
                     rename("TEMP.DAT", "RECORD.DAT");

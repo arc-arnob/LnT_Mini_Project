@@ -28,6 +28,7 @@ error_t update_data_file(FILE **fptr, int id){
 
             fseek(*fptr, -sizeof(rec),SEEK_CUR);
             fwrite(&rec,sizeof(rec),1,*fptr); //working
+            fflush(stdin);
 
             break;
 
