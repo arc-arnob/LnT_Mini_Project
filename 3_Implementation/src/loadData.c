@@ -23,14 +23,11 @@ patient* loadData(patient *start, FILE **fptr){
 
         if(start == NULL){
             start = new_box;
-        
-            return start;
         }
         else{
             
             insert_end(start,rec.uniq_id,rec.firstname,rec.lastname,rec.aadhar_num,rec.height,rec.weight,rec.age,rec.date_of_vaccine,rec.insurance,rec.shot);
             free(new_box);
-            return start;
         }
         
 

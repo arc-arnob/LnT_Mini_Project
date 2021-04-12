@@ -7,25 +7,34 @@ int main(){
     FILE *f = NULL;
     FILE *r = NULL;
     FILE *rt = NULL;
+    patient *start = NULL;
     error_t indexfile = indexFile("INDEX.DAT","rb+",&f);
     int lsize = fseek(f,0, SEEK_END);
     patient p;
     long int recsize = sizeof(patient);
-    error_t recordFile = openFile("RECORD.DAT","rb+",&r);
+
+    error_t recordFile = openFile("RECORD.DAT","rb+", &r);
+    int data_loaded_flag = 0;
+    printf("PRESS 1 if you want to load File data or press 0 to continue: \n");
+    int ch;
+    scanf("%d",&ch);
+    if(ch==1){
+        printf("LOADING DATA>>>>\n");
+        start = loadData(start, &r);
+        printf("DATA LOADED>>>>\n");
+    }
+
+    
     //int rsize = fseek(r,0, SEEK_END);
-    int size = ftell(r);
-    printf("SIZE OF RECORD.DAT is %d\n",size); // data is getting stored.
+    // int size = ftell(r);
+    // printf("SIZE OF RECORD.DAT is %d\n",size); // data is getting stored.
     
 
-    patient *start = NULL;
+    
     vaccine_data col_data = {0};
     patient res ={0};
     int found;
-
-    //*****LOADING DATA*****
-    // printf("Please wait while we setup your data...\n");
-    // start = loadData(start,&r);
-    // printf("Data Loaded!\n");
+    
 
     // Declaring Function Pointers
     patient *(*fptr_type1)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = create_ll;
@@ -33,7 +42,7 @@ int main(){
     error_t (*fptr_type3)(patient *) = display_ll;
     error_t (*fptr_type4)(patient *, int, patient *, int *) = find_by_id;
     error_t (*fptr_type5)(patient *, int, int, int) = update_record;
-    error_t (*fptr_type6)(patient *, FILE **) = saveFile;
+    error_t (*fptr_type6)(patient *, FILE **, int *) = saveFile;
     int choice;
     while(1)
     {
@@ -205,7 +214,7 @@ int main(){
 
             if(choice == 5){
                 printf("Savind Data to file...\n");
-                error_t code = (*fptr_type6)(start, &r);
+                error_t code = (*fptr_type6)(start, &r, &ch);
                 printf("Data Saved!\n");
 
             }

@@ -202,7 +202,7 @@ error_t openFile(char *addr, char *mode, FILE **fptr);
  * @param fptr 
  * @return error_t 
  */
-error_t saveFile(patient *, FILE **fptr);
+error_t saveFile(patient *, FILE **, int *);
 
 /**
  * @brief Reads file from file and prints
