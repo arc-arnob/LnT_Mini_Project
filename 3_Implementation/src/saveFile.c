@@ -7,7 +7,6 @@ error_t saveFile(patient *start, FILE **fptr){
     patient *ptr;
     ptr = start;
     while(ptr != NULL){
-        printf("Here sve file\n");
         patient *record = (patient *)malloc(sizeof(patient));
         record->uniq_id = ptr->uniq_id;
         strcpy(record->firstname, ptr->firstname);
@@ -19,7 +18,6 @@ error_t saveFile(patient *start, FILE **fptr){
         strcpy(record->date_of_vaccine, ptr->date_of_vaccine);
         record->insurance = ptr->insurance;
         record->shot = ptr->shot;
-        printf("%s@#@#@#@#@\n", record->firstname);
         fwrite(record,sizeof(patient),1,*fptr);
         free(record);
         ptr = ptr->next;

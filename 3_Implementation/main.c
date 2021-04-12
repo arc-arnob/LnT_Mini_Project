@@ -6,6 +6,7 @@ int main(){
 
     FILE *f = NULL;
     FILE *r = NULL;
+    FILE *rt = NULL;
     error_t indexfile = indexFile("INDEX.DAT","rb+",&f);
     int lsize = fseek(f,0, SEEK_END);
     patient p;
@@ -22,9 +23,9 @@ int main(){
     int found;
 
     //*****LOADING DATA*****
-    printf("Please wait while we setup your data...\n");
-    start = loadData(start,&r);
-    printf("Data Loaded!\n");
+    // printf("Please wait while we setup your data...\n");
+    // start = loadData(start,&r);
+    // printf("Data Loaded!\n");
 
     // Declaring Function Pointers
     patient *(*fptr_type1)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = create_ll;
@@ -154,29 +155,50 @@ int main(){
                     printf("Vaccine code: %d\n", res.shot);
                     printf("Date of vaccination is: %s\n", res.date_of_vaccine);
 
+                }else{
+                    printf("Patient Record Not Found\n");
                 }
+                
             }
 
             if(choice == 4){
-                printf("Please Enter the patient id:\n");
-                scanf("%d", &id);
-                error_t code = (*fptr_type4)(start, id, &res ,&found);
-                if(found == 1){
-                    printf("Patient Found with id: %d\n", res.uniq_id);
-                    int choice_2;
-                    printf("Please select the field you want to update\n");
-                    printf("Press 1 to update first name\n");
-                    printf("Press 2 to update last name\n");
-                    printf("Press 3 to update age\n");
-                    printf("Press 4 to update height\n");
-                    printf("Press 5 to update weight\n");
-                    printf("Press 6 to update vaccine code\n");
-                    printf("Press 7 to update date of vaccine\n");
-                    scanf("%d", &choice_2);
-                    error_t code = (*fptr_type5)(start, id, choice_2, 0); // 0 is for prod run.
-                    printf("**********Record Updated**********\n");
+                int choice_3;
+                printf("Press 1 to update File Record\n");
+                printf("Press 2 to update Disk Record\n");
+                scanf("%d",&choice_3);
+                if(choice == 2){
+                    printf("Please Enter the patient id:\n");
+                    scanf("%d", &id);
+                    error_t code = (*fptr_type4)(start, id, &res ,&found);
+                    if(found == 1){
+                        printf("Patient Found with id: %d\n", res.uniq_id);
+                        int choice_2;
+                        printf("Please select the field you want to update\n");
+                        printf("Press 1 to update first name\n");
+                        printf("Press 2 to update last name\n");
+                        printf("Press 3 to update age\n");
+                        printf("Press 4 to update height\n");
+                        printf("Press 5 to update weight\n");
+                        printf("Press 6 to update vaccine code\n");
+                        printf("Press 7 to update date of vaccine\n");
+                        scanf("%d", &choice_2);
+                        error_t code = (*fptr_type5)(start, id, choice_2, 0); // 0 is for prod run.
+                        printf("**********Record Updated**********\n");
+                    }else{
+                        printf("NO RECORD FOUND\n");
+                    }
                 }else{
-                    printf("NO RECORD FOUND\n");
+                    printf("Please Enter the patient id:\n");
+                    scanf("%d", &id);
+                    rewind(f);
+                    error_t code = validate_id(&f,id);
+                    if(code == ID_EXISTS){
+                        update_data_file(&r,id);
+                        printf("RECORD UPDATED\n");
+                    }else{
+                        printf("NO RECORD FOUND");
+                    }
+
                 }
                 
             }

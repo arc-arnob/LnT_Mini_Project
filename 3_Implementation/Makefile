@@ -11,7 +11,8 @@ src/validate_id.c \
 src/openFile.c \
 src/saveFile.c \
 src/readFile.c \
-src/loadData.c
+src/loadData.c \
+src/update_data_file.c
 
 TEST_SRC = test/test.c \
 unity/unity.c 

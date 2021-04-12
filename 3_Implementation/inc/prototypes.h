@@ -217,7 +217,9 @@ error_t readFile(FILE **fptr);
  * 
  * @return error_t 
  */
-patient* loadData(patient *, FILE **);
+patient* loadData(patient *, FILE **); // Deprecated
+
+error_t update_data_file(FILE **, int);
 
 #endif
 
