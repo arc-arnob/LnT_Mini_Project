@@ -10,7 +10,6 @@ int main(){
     patient *start = NULL;
     error_t indexfile = indexFile("INDEX.DAT","rb+",&f);
     int lsize = fseek(f,0, SEEK_END);
-    patient p;
     long int recsize = sizeof(patient);
 
     error_t recordFile = openFile("RECORD.DAT","rb+", &r);

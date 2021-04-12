@@ -26,9 +26,9 @@ error_t update_data_file(FILE **fptr, int id){
             printf("Enter the date of vaccination\n");
             scanf("%s", rec.date_of_vaccine);
 
-            fseek(*fptr, -sizeof(rec),SEEK_CUR);
+            if(fseek(*fptr, -sizeof(rec),SEEK_CUR) !=0 ) return -1;
             fwrite(&rec,sizeof(rec),1,*fptr); //working
-            fflush(stdin);
+            
 
             break;
 
