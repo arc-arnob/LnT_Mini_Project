@@ -186,6 +186,32 @@ error_t validate_id(FILE **fptr, int);
  */
 error_t indexFile(char *addr, char *mode ,FILE **fptr);
 
+/**
+ * @brief This is to store record of users
+ * 
+ * @param addr 
+ * @param mode 
+ * @param fptr 
+ * @return error_t 
+ */
+error_t openFile(char *addr, char *mode, FILE **fptr);
+
+/**
+ * @brief To save each record in file
+ * 
+ * @param fptr 
+ * @return error_t 
+ */
+error_t saveFile(patient *, FILE **fptr);
+
+/**
+ * @brief Reads file from file and prints
+ * 
+ * @param fptr 
+ * @return error_t 
+ */
+error_t readFile(FILE **fptr);
+
 #endif
 
 

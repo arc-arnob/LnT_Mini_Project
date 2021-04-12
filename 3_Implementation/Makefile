@@ -7,7 +7,10 @@ src/insert_end.c \
 src/find_by_id.c \
 src/update_record.c \
 src/indexFile.c \
-src/validate_id.c
+src/validate_id.c \
+src/openFile.c \
+src/saveFile.c \
+src/readFile.c
 
 TEST_SRC = test/test.c \
 unity/unity.c 
@@ -25,7 +28,6 @@ endif
 all:
 	gcc -I $(INC_H) $(SRC) main.c -o $(PROJ_NAME).$(EXEC)
 	
-
 run:
 	$(PROJ_NAME).$(EXEC)
 test:
@@ -33,12 +35,13 @@ test:
 
 cppcheck:
 	cppcheck --enable=all $(SRC)
-
-valgrind:
-	valgrind ./$(PROJ_NAME).$(EXEC)
 debug:
 	gcc -I $(INC_H) $(SRC) main.c -g -o $(PROJ_NAME).$(EXEC)
 	gdb $(PROJ_NAME).$(EXEC)
+
+valgrind:
+	valgrind ./$(PROJ_NAME).$(EXEC)
+
 
 clean:
 	del *.DAT

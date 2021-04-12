@@ -5,11 +5,15 @@ int main(){
 
 
     FILE *f = NULL;
-    // Read the file, go to the end, divide by 4(for int) and malloc size for that.
+    FILE *r = NULL;
     error_t indexfile = indexFile("INDEX.DAT","rb+",&f);
     int lsize = fseek(f,0, SEEK_END);
-    int size = ftell(f);
-    printf("size is %d: \n",size);
+    patient p;
+    long int recsize = sizeof(patient);
+    error_t recordFile = openFile("RECORD.DAT","rb+",&r);
+    //int rsize = fseek(r,0, SEEK_END);
+    int size = ftell(r);
+    printf("SIZE OF RECORD.DAT is %d\n",size); // data is getting stored.
     
 
     patient *start = NULL;
@@ -23,6 +27,7 @@ int main(){
     error_t (*fptr_type3)(patient *) = display_ll;
     error_t (*fptr_type4)(patient *, int, patient *, int *) = find_by_id;
     error_t (*fptr_type5)(patient *, int, int, int) = update_record;
+    error_t (*fptr_type6)(patient *, FILE **) = saveFile;
     int choice;
     while(1)
     {
@@ -31,6 +36,7 @@ int main(){
         printf("Press 3 find a patient by Id\n");
         printf("Press 4 to Update Patient's Record\n");
         printf("Press 5 to save data to file\n");
+        printf("Press 6 to print data from file\n");
         printf("Press 10 to display everthing\n");
         printf("Press -1 to exit.\n");
         printf("Enter your choice\n");
@@ -52,7 +58,6 @@ int main(){
             char date[20];
             insured insurance;
             vaccine shot;
-           
         
             printf("%d is the choice\n", choice);
             if(choice == 1){
@@ -89,6 +94,7 @@ int main(){
                 // step 2 add index to file if not
                 fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
+
                 fflush(stdin);
                 
             }
@@ -170,6 +176,16 @@ int main(){
                 
             }
 
+            if(choice == 5){
+                printf("Savind Data to file...\n");
+                error_t code = (*fptr_type6)(start, &r);
+                printf("Data Saved!\n");
+
+            }
+            if(choice == 6){
+                error_t code = readFile(&r);
+            }
+
             if(choice == 10){
                 printf("%d", start->uniq_id);
                 (*fptr_type3)(start);
@@ -184,6 +200,7 @@ int main(){
     
     }
     fclose(f);
+    fclose(r);
     
     //delete_all(start);
     
