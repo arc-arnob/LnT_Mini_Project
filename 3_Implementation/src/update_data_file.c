@@ -27,7 +27,7 @@ error_t update_data_file(FILE **fptr, int id){
             scanf("%s", rec.date_of_vaccine);
 
             fseek(*fptr, -sizeof(rec),SEEK_CUR);
-            fwrite(&rec,sizeof(rec),1,*fptr);
+            fwrite(&rec,sizeof(rec),1,*fptr); //working
 
             break;
 
