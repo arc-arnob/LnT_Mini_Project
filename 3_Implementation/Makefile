@@ -14,7 +14,8 @@ src/readFile.c \
 src/loadData.c \
 src/update_data_file.c \
 src/delete_patient.c \
-src/delete_rec_file.c
+src/delete_rec_file.c \
+src/delete_all.c
 
 TEST_SRC = test/test.c \
 unity/unity.c 

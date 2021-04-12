@@ -228,7 +228,7 @@ int main(){
                 scanf("%d", &id); // perform validation
                 error_t code = (*fptr_type4)(start, id, &res, &found);
                 if(found == 1){
-                    error_t del_code = delete_patient(start,id);
+                    start = delete_patient(start,id);
                     error_t del_code_2 = delete_rec_file(&r,&rt,id);
 
                     // Performing clean up
@@ -238,14 +238,35 @@ int main(){
                     rename("TEMP.DAT", "RECORD.DAT");
 
                     openFile("RECORD.DAT","rb+",&r);
+
+                    //Updating INDEX file
+                    error_t del_idx_code = delete_index_file(&f,&rt,id);
+                    fclose(rt);
+                    fclose(f);
+                    remove("INDEX.DAT");
+                    rename("TEMP.DAT", "INDEX.DAT");
+
+                    openFile("INDEX.DAT","rb+",&f);
+
                 }else{
                     error_t del_code = delete_rec_file(&r,&rt,id);
+                    
+                    // Updating RECORD file
                     fclose(rt);
                     fclose(r);
                     remove("RECORD.DAT");
                     rename("TEMP.DAT", "RECORD.DAT");
 
                     openFile("RECORD.DAT","rb+",&r);
+
+                    //Updating INDEX file
+                    error_t del_idx_code = delete_index_file(&f,&rt,id);
+                    fclose(rt);
+                    fclose(f);
+                    remove("INDEX.DAT");
+                    rename("TEMP.DAT", "INDEX.DAT");
+
+                    openFile("INDEX.DAT","rb+",&f);
                 }
                 printf("Record Updated\n");
             }
@@ -263,10 +284,12 @@ int main(){
   
     
     }
+    (*fptr_type6)(start, &r, &ch);
+
     fclose(f);
     fclose(r);
     
-    //delete_all(start);
+    delete_all(start);
     
 
 

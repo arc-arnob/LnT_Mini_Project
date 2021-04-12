@@ -14,3 +14,18 @@ error_t delete_rec_file(FILE **fptr,FILE **ft, int id){
     return SUCCESS;
 
 }
+
+error_t delete_index_file(FILE **fptr,FILE **ft, int id){
+    int idx;
+    *ft = fopen("TEMP.DAT","wb+");
+    
+    rewind(*fptr);
+    while(fread(&idx, 4,1,*fptr) == 1){
+        if(idx != id){
+            fwrite(&idx,4, 1, *ft);
+        }
+        
+    }
+    return SUCCESS;
+
+}

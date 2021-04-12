@@ -1,8 +1,8 @@
 #include "prototypes.h"
 
-void delete_all(box *start){
+void delete_all(patient *start){
 
-    box *ptr;
+    patient *ptr;
     ptr = start;
     while(ptr->next != NULL){
         start = delete_beg(ptr);
@@ -12,8 +12,8 @@ void delete_all(box *start){
 
 }
 
-box *delete_beg(box *start){
-    box *ptr;
+patient *delete_beg(patient *start){
+    patient *ptr;
     ptr = start;
     start = start->next;
     free(ptr);

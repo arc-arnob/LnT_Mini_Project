@@ -152,13 +152,20 @@ error_t update_record(patient *, int, int, int); // last int is 0 -> prod , 1 ->
  * @param[in]  int   id to be deleted
  * @return error_t 
  */
-error_t delete_patient(patient *, int);
+patient *delete_patient(patient *, int);
 
 /**
  * @brief Deletes record from file
  * 
  */
 error_t delete_rec_file(FILE **, FILE ** ,int);
+
+/**
+ * @brief Updates Index file
+ * 
+ * @return error_t 
+ */
+error_t delete_index_file(FILE **, FILE ** ,int);
 
 /**
  * @brief Deletes all the nodes
