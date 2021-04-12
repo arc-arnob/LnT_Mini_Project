@@ -1,12 +1,8 @@
 #include "prototypes.h"
 #include "unity.h"
 
-box *start = NULL;
-average_vol_data avg_data = {0};
-color_data col_data = {0};
-box res ={0};
-max_height_data data ={0};
-float diff = 0;
+patient *start = NULL;
+
 
 /* Required by the unity test framework */
 void setUp()
@@ -26,58 +22,6 @@ void test_create(void){
 
 }
 
-void test_insert(void){
-    
-    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,2,1,1,1,1,RED));
-    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,3,1,1,1,1,BLUE));
-    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,4,1,1,1,1,BLUE));
-    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,5,1,1,1,1,BLUE));
-    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,6,1,1,1,1,BLUE));
-    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,2,10,20,100,100,BLUE));
-}
-
-void test_count(void){
-
-    TEST_ASSERT_EQUAL(SUCCESS, count_by_color(start,&col_data,BLUE));
-    TEST_ASSERT_EQUAL(5,col_data.num);
-}
-
-void test_delete(void){
-    TEST_ASSERT_EQUAL(SUCCESS, delete_box(start,5));
-}
-void test_display(void){
-    TEST_ASSERT_EQUAL(SUCCESS, display_ll(start));
-
-}
-void test_find(void){
-    
-    TEST_ASSERT_EQUAL(SUCCESS, find_by_id(start,3,&res));
-    TEST_ASSERT_EQUAL(3, res.uniq_id);
-    TEST_ASSERT_EQUAL(0,find_by_id(start,312,&res));
-
-}
-void test_maxHeight(void){
-
-    TEST_ASSERT_EQUAL(SUCCESS, find_max_height(start,&data));
-    TEST_ASSERT_EQUAL(100,data.height);
-
-
-
-}
-void test_diff(void){
-    TEST_ASSERT_EQUAL(SUCCESS,min_max_v_diff(start, &diff));
-    TEST_ASSERT_EQUAL(19999,diff);
-
-}
-void test_avgVol(void){
-    TEST_ASSERT_EQUAL(SUCCESS,avg_volume(start,&avg_data));
-    TEST_ASSERT_EQUAL(2858,avg_data.average);
-
-}
-void test_updateWeight(void){
-    TEST_ASSERT_EQUAL(SUCCESS,update_weight(start, 2, 1000));
-
-}
 
 int main(void)
 {
