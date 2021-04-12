@@ -7,6 +7,7 @@ error_t readFile(FILE **fptr){
     long int size = sizeof(res);
     
     while(fread(&res, size,1, *fptr)==1){
+        printf("Patient id: %d\n",res.uniq_id);
         printf("First name: %s\n",res.firstname);
         printf("last Name: %s\n", res.lastname);
         printf("Aadhar Number: %s\n", res.aadhar_num);

@@ -4,7 +4,6 @@ error_t saveFile(patient *start, FILE **fptr){
     // Define a structure
      // need to perform malloc
     //loop through the list
-    printf("$#$#$#$#$#$HERENOGGAAG#%%$%$\n");
     patient *ptr;
     ptr = start;
     while(ptr != NULL){

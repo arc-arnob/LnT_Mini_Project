@@ -21,6 +21,11 @@ int main(){
     patient res ={0};
     int found;
 
+    //*****LOADING DATA*****
+    printf("Please wait while we setup your data...\n");
+    start = loadData(start,&r);
+    printf("Data Loaded!\n");
+
     // Declaring Function Pointers
     patient *(*fptr_type1)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = create_ll;
     error_t (*fptr_type2)(patient *,int, char *, char *, char *, float, float,int,char *, insured, vaccine) = insert_end;

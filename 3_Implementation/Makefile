@@ -10,7 +10,8 @@ src/indexFile.c \
 src/validate_id.c \
 src/openFile.c \
 src/saveFile.c \
-src/readFile.c
+src/readFile.c \
+src/loadData.c
 
 TEST_SRC = test/test.c \
 unity/unity.c 

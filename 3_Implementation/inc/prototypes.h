@@ -212,6 +212,13 @@ error_t saveFile(patient *, FILE **fptr);
  */
 error_t readFile(FILE **fptr);
 
+/**
+ * @brief Loads data from file on program start up
+ * 
+ * @return error_t 
+ */
+patient* loadData(patient *, FILE **);
+
 #endif
 
 
