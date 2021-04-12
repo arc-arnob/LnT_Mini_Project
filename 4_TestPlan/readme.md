@@ -4,15 +4,7 @@
 
 | **Test ID** | **Description**                                              | **Exp I/P** | **Exp O/P** | **Actual Out** |**Type Of Test**  |    
 |-------------|--------------------------------------------------------------|------------|-------------|----------------|------------------|
-|  H_01       |Check if Linked List is created or not                        | 1. NULL Pointer 
-                                                                               2. Unique id 
-                                                                               3. First name
-                                                                               4. Last name
-                                                                               5. Height
-                                                                               6. Weight
-                                                                               7. Age
-                                                                               8. Insurance Status
-                                                                               9. vaccine code|A linked list should be created| --TBD-- | Technical|
+|  H_01       |Check if Linked List is created or not                        | 1. NULL Pointer 2. Unique id 3. First name 4. Last name 5. Height 6. Weight 7. Age  8. Insurance Status 9. vaccine code|A linked list should be created| --TBD-- | Technical|
 |  H_02       |--------------------------------------------------------------|  ------------|-------------|----------------|Scenario based    |
 |  H_03       |--------------------------------------------------------------|  ------------|-------------|----------------|Boundary based    |
 
