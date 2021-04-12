@@ -155,6 +155,12 @@ error_t update_record(patient *, int, int, int); // last int is 0 -> prod , 1 ->
 error_t delete_patient(patient *, int);
 
 /**
+ * @brief Deletes record from file
+ * 
+ */
+error_t delete_rec_file(FILE **, FILE ** ,int);
+
+/**
  * @brief Deletes all the nodes
  * @param[in]  box * Pointer to start node
  * 

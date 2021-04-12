@@ -19,9 +19,9 @@ int main(){
     int ch;
     scanf("%d",&ch);
     if(ch==1){
-        printf("LOADING DATA>>>>\n");
+        printf("LOADING DATA...\n");
         start = loadData(start, &r);
-        printf("DATA LOADED>>>>\n");
+        printf("DATA LOADED...\n");
     }
 
     
@@ -52,6 +52,7 @@ int main(){
         printf("Press 4 to Update Patient's Record\n");
         printf("Press 5 to save data to file\n");
         printf("Press 6 to print data from file\n");
+        printf("Press 7 to delete data from record");
         printf("Press 10 to display everthing\n");
         printf("Press -1 to exit.\n");
         printf("Enter your choice\n");
@@ -220,6 +221,33 @@ int main(){
             }
             if(choice == 6){
                 error_t code = readFile(&r);
+            }
+
+            if(choice == 7){
+                printf("Please enter the id of the patient\n");
+                scanf("%d", &id); // perform validation
+                error_t code = (*fptr_type4)(start, id, &res, &found);
+                if(found == 1){
+                    error_t del_code = delete_patient(start,id);
+                    error_t del_code_2 = delete_rec_file(&r,&rt,id);
+
+                    // Performing clean up
+                    fclose(rt);
+                    fclose(r);
+                    remove("RECORD.DAT");
+                    rename("TEMP.DAT", "RECORD.DAT");
+
+                    openFile("RECORD.DAT","rb+",&r);
+                }else{
+                    error_t del_code = delete_rec_file(&r,&rt,id);
+                    fclose(rt);
+                    fclose(r);
+                    remove("RECORD.DAT");
+                    rename("TEMP.DAT", "RECORD.DAT");
+
+                    openFile("RECORD.DAT","rb+",&r);
+                }
+                printf("Record Updated\n");
             }
 
             if(choice == 10){
