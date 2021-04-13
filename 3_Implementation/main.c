@@ -9,9 +9,7 @@ int main(){
     FILE *rt = NULL;
     patient *start = NULL;
     error_t indexfile = indexFile("INDEX.DAT","rb+",&f);
-    int lsize = fseek(f,0, SEEK_END);
-    long int recsize = sizeof(patient);
-
+    
     error_t recordFile = openFile("RECORD.DAT","rb+", &r);
     int data_loaded_flag = 0;
     printf("PRESS 1 if you want to load File data or press 0 to continue: \n");
