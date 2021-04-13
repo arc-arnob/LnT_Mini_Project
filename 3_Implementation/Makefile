@@ -33,6 +33,7 @@ else
 	  EXEC = out
    endif
 endif
+.PHONY: run clean test doc all
 
 all:
 	gcc -I $(INC_H) $(SRC) main.c -o $(call FixPath,$(PROJ_NAME).$(EXEC))
@@ -40,7 +41,13 @@ all:
 run:
 	$(call FixPath,$(PROJ_NAME).$(EXEC))
 test:
-	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(TEST_PROJ_NAME).$(EXEC)
+	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+	$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+
+coverage:
+	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+	$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
+	gcov -a  $(SRC) test/test.c
 
 cppcheck:
 	cppcheck --enable=all $(SRC) main.c
@@ -55,3 +62,5 @@ valgrind:
 clean:
 	del *.DAT
 	del *.$(EXEC)
+	del *.gcda
+	del *.gcno

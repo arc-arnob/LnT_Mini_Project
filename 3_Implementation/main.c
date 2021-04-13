@@ -30,7 +30,7 @@ int main(){
     
 
     
-    vaccine_data col_data = {0};
+    // vaccine_data col_data = {0};
     patient res ={0};
     int found;
     
