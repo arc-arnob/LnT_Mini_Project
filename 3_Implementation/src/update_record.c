@@ -20,15 +20,15 @@ error_t update_record(patient *start, int id, int choice, int test){
         if(found == 1 && test == 0){
             /* For Unit Testing, make some default values */
             if(choice == 1){
-                char name[100];
+                char name[101];
                 printf("Please enter the new first name\n");
-                scanf("%s", name);
+                scanf("%100s", name);
                 strcpy(ptr->firstname,name);
             }
             if(choice == 2){
-                char name[100];
+                char name[101];
                 printf("Please enter the new last name\n");
-                scanf("%s", name);
+                scanf("%100s", name);
                 strcpy(ptr->lastname,name);
             }
             if(choice == 3){
@@ -56,10 +56,10 @@ error_t update_record(patient *start, int id, int choice, int test){
                 ptr->shot = code;
             }
             if(choice == 7){
-                char name[100];
+                char date[13];
                 printf("Please enter the new vaccine date\n");
-                scanf("%s", name);
-                strcpy(ptr->date_of_vaccine,name);
+                scanf("%12s", date);
+                strcpy(ptr->date_of_vaccine,date);
             }
         }
 

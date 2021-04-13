@@ -55,13 +55,13 @@ typedef enum insured{
  */
 typedef struct patient{
     int uniq_id;
-    char firstname[100];
-    char lastname[100];
-    char aadhar_num[20];
+    char firstname[101];
+    char lastname[101];
+    char aadhar_num[21];
     float height;
     float weight;
     int age;
-    char date_of_vaccine[12];
+    char date_of_vaccine[13];
     insured insurance;
     vaccine shot;
     struct patient *next;

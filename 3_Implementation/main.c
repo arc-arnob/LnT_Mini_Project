@@ -56,24 +56,26 @@ int main(){
         printf("Press -1 to exit.\n");
         printf("Enter your choice\n");
         scanf("%d", &choice);
-
+        
         if(choice == -1){
             break;
         }
 
         if (choice >= 1 && choice <= 10)
         {   
+
+            
             int id;
-            char firstname[100]; 
-            char lastname[100];
-            char aadhar_num[100];
+            char firstname[101]; 
+            char lastname[101];
+            char aadhar_num[21];
             float height;
             float weight;
             int age;
-            char date[20];
+            char date[13];
             insured insurance;
             vaccine shot;
-        
+
             printf("%d is the choice\n", choice);
             if(choice == 1){
                 printf("Enter Id of patient\n");
@@ -86,15 +88,15 @@ int main(){
                     continue;
                 }
                 printf("Enter First Name\n");
-                scanf("%s", firstname);
+                scanf("%100s", firstname);
                 printf("Enter the last name\n");
-                scanf("%s",lastname);
+                scanf("%100s",lastname);
                 printf("Enter height of the patient\n");
                 scanf("%f",&height);
                 printf("Enter weight of patient\n");
                 scanf("%f",&weight);
                 printf("enter aadhar card number\n");
-                scanf("%s",aadhar_num);
+                scanf("%20s",aadhar_num);
                 printf("Enter age of the patient\n");
                 scanf("%d",&age);
                 printf("Is the patient insured?\n");
@@ -102,7 +104,7 @@ int main(){
                 printf("Enter the name of the vaccine recieved\n");
                 scanf("%d",&shot);
                 printf("Enter the date of vaccination\n");
-                scanf("%s", date);
+                scanf("%12s", date);
                 start = (*fptr_type1)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
                 
 
@@ -110,9 +112,12 @@ int main(){
                 fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
 
-                fflush(stdin);
                 
-            }
+                
+                }
+            
+        
+            
             if(choice == 2){
                 printf("Enter Id of patient\n");
                 scanf("%d",&id);
@@ -124,15 +129,15 @@ int main(){
                     continue;
                 }
                 printf("Enter First Name\n");
-                scanf("%s", firstname);
+                scanf("%100s", firstname);
                 printf("Enter the last name\n");
-                scanf("%s",lastname);
+                scanf("%100s",lastname);
                 printf("Enter height of the patient\n");
                 scanf("%f",&height);
                 printf("Enter weight of patient\n");
                 scanf("%f",&weight);
                 printf("enter aadhar card number\n");
-                scanf("%s",aadhar_num);
+                scanf("%20s",aadhar_num);
                 printf("Enter age of the patient\n");
                 scanf("%d",&age);
                 printf("Is the patient insured?\n");
@@ -140,12 +145,12 @@ int main(){
                 printf("Enter the name of the vaccine recieved\n");
                 scanf("%d",&shot);
                 printf("Enter the date of vaccination\n");
-                scanf("%s", date);
+                scanf("%12s", date);
                 error_t code = (*fptr_type2)(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
                 // step 2 add index to file if not
                 fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
-                fflush(stdin);
+              
             }
 
             if(choice == 3){
@@ -175,7 +180,7 @@ int main(){
                 printf("Press 1 to update File Record\n");
                 printf("Press 2 to update Disk Record\n");
                 scanf("%d",&choice_3);
-                if(choice == 2){
+                if(2 == choice){
                     printf("Please Enter the patient id:\n");
                     scanf("%d", &id);
                     error_t code = (*fptr_type4)(start, id, &res ,&found);
