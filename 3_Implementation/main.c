@@ -3,7 +3,7 @@
 
 int main(){
 
-
+    int inserted_flag = 0;
     FILE *f = NULL;
     FILE *r = NULL;
     FILE *rt = NULL;
@@ -20,6 +20,7 @@ int main(){
     if(ch==1){
         printf("LOADING DATA...\n");
         start = loadData(start, &r);
+        inserted_flag = 1;
         printf("DATA LOADED...\n");
     }
 
@@ -78,6 +79,7 @@ int main(){
 
             printf("%d is the choice\n", choice);
             if(choice == 1){
+                
                 printf("Enter Id of patient\n");
                 scanf("%d",&id);
                 //step 1 validation to check existing ids
@@ -111,6 +113,7 @@ int main(){
                 // step 2 add index to file if not
                 fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
+                inserted_flag = 1;
 
                 
                 
@@ -150,6 +153,7 @@ int main(){
                 // step 2 add index to file if not
                 fseek(f,0,SEEK_END);
                 fwrite(&id,4,1,f);
+                inserted_flag = 1;
               
             }
 
@@ -288,12 +292,12 @@ int main(){
   
     
     }
-    (*fptr_type6)(start, &r, &ch);
+    if(inserted_flag==1) (*fptr_type6)(start, &r, &ch);
 
     fclose(f);
     fclose(r);
-    
-    delete_all(start);
+    printf("Here deleting!\n");
+    if(inserted_flag==1) delete_all(start);
     
 
 

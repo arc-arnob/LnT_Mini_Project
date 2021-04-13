@@ -10,6 +10,7 @@ void delete_all(patient *start){
     }
     free(start);
 
+
 }
 
 patient *delete_beg(patient *start){
