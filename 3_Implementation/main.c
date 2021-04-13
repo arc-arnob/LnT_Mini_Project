@@ -297,7 +297,8 @@ int main(){
     fclose(f);
     fclose(r);
     printf("Here deleting!\n");
-    if(inserted_flag==1) delete_all(start);
+    if(inserted_flag==1) start = delete_all(start);
+    free(start);
     
 
 

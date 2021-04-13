@@ -1,6 +1,6 @@
 #include "prototypes.h"
 
-void delete_all(patient *start){
+patient *delete_all(patient *start){
 
     patient *ptr;
     ptr = start;
@@ -8,7 +8,7 @@ void delete_all(patient *start){
         start = delete_beg(ptr);
         ptr = ptr->next;
     }
-    free(start);
+    return start;
 
 
 }
