@@ -11,7 +11,8 @@
 
 ## Low Level Design 
 
---- TBD Structural and Behavioural Diagram
-![FeaturesLevelStructuralDiagram](Link to Pic)
+### Package Diagram
+
+![PackageDiagram](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/2_Design/package%20diagram.png)
 ### State Diagram :
 ![State Diagram](https://github.com/arc-arnob/LnT_Mini_Project/blob/main/2_Design/state%20diagram.png)
