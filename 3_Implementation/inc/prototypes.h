@@ -172,7 +172,7 @@ error_t delete_index_file(FILE **, FILE ** ,int);
  * @param[in]  box * Pointer to start node
  * 
  */
-patient *delete_all(patient *);
+void delete_all(patient *);
 
 /**
  * @brief Deletes one node from the beginning

@@ -1,14 +1,16 @@
 #include "prototypes.h"
 
-patient *delete_all(patient *start){
+void delete_all(patient *start){
 
+    patient *current;
+    current = start;
     patient *ptr;
-    ptr = start;
-    while(ptr->next != NULL){
-        start = delete_beg(ptr);
-        ptr = ptr->next;
+    while(current != NULL){
+        ptr = current->next;
+        free(current);
+        current = ptr;
     }
-    return start;
+    start = NULL;
 
 
 }
