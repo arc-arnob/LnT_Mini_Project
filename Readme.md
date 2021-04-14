@@ -37,7 +37,7 @@ SF Id. |  Name   |    Features    | Issuess Raised |Issues Resolved|No Test Case
 ## Challenges Faced and How Was It Overcome
 | No. | Challenge | Solution
 |-----|-----------|--------
-|1. | Code Crashed without any error message (Swgmentation Fault) | GDB tool helped to pin point the Invalid Read 
+|1. | Code Crashed without any error message (Segmentation Fault) | GDB tool helped to pin point the Invalid Read 
 |2. | After program shut down, there was no way to recover data | Implemented File System |
 |3. | IOWITHOUTPOSITIONING Error | Check if fseek() != -1 between consecutive read and write calls
 |4. | Structure Padding causing write to uninitialized location(Still Reachable code error) | Won't Fix, need help
