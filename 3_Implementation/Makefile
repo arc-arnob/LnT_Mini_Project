@@ -17,6 +17,8 @@ src/delete_patient.c \
 src/delete_rec_file.c \
 src/delete_all.c
 
+COV_SRC = test.c
+
 TEST_SRC = test/test.c \
 unity/unity.c 
 INC_H = inc
@@ -44,10 +46,11 @@ test:
 	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
 	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
 
-# coverage:
-# 	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-# 	$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-# 	gcov $(SRC)
+coverage:
+	gcc -fprofile-arcs -ftest-coverage -I $(INC_H) -I $(INC_T) unity/unity.c test.c $(SRC) -o $(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
+	$(call FixPath, $(TEST_PROJ_NAME).$(EXEC))
+	gcov -a $(COV_SRC)
+
 
 cppcheck:
 	cppcheck --enable=all $(SRC) main.c

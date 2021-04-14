@@ -1,0 +1,273 @@
+        -:    0:Source:test.c
+        -:    0:Graph:test.gcno
+        -:    0:Data:test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "prototypes.h"
+        -:    2:#include "unity.h"
+        -:    3:
+        -:    4:/* Required by the unity test framework */
+       13:    5:void setUp()
+        -:    6:{
+       13:    7:}
+        -:    8:/* Required by the unity test framework */
+       13:    9:void tearDown()
+        -:   10:{
+       13:   11:}
+        -:   12:
+        -:   13:int id;
+        -:   14:char firstname[101]; 
+        -:   15:char lastname[101];
+        -:   16:char aadhar_num[21];
+        -:   17:float height;
+        -:   18:float weight;
+        -:   19:int age;
+        -:   20:char date[13];
+        -:   21:insured insurance;
+        -:   22:vaccine shot;
+        -:   23:
+        -:   24:int data_loaded_flag = 0;
+        -:   25:int ch;
+        -:   26:
+        -:   27:FILE *f = NULL;
+        -:   28:FILE *r = NULL;
+        -:   29:FILE *rt = NULL;
+        -:   30:patient *start = NULL;
+        -:   31:
+        -:   32:int old_count,count;
+        -:   33:
+        1:   34:void check_openFile(void){
+        1:   35:    TEST_ASSERT_EQUAL(SUCCESS,indexFile("INDEX.DAT","rb+",&f));
+        1:   35-block  0
+        1:   36:    TEST_ASSERT_EQUAL(SUCCESS,openFile("RECORD.DAT","rb+",&r));
+        -:   37:
+        1:   38:}
+        -:   39:
+        1:   40:void test_create(void){
+        1:   41:    id = 1;
+        1:   42:    strcpy(firstname, "testuser1");
+        1:   43:    strcpy(lastname, "lastuser1");
+        1:   44:    strcpy(aadhar_num,"123456789");
+        1:   45:    height = 167.0;
+        1:   46:    weight = 76.1;
+        1:   47:    age = 34;
+        1:   48:    strcpy(date,"12-01-21");
+        1:   49:    insurance = 1;
+        1:   50:    shot = 2;
+        -:   51:    
+        -:   52:
+        1:   53:    start = create_ll(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
+        1:   53-block  0
+        -:   54:    
+        1:   55:    fseek(f,0,SEEK_END);
+        1:   56:    fwrite(&id,4,1,f);
+        -:   57:
+        1:   58:    TEST_ASSERT_EQUAL(1,start->uniq_id);
+        1:   59:    TEST_ASSERT_EQUAL_STRING("testuser1",start->firstname);
+        1:   60:    TEST_ASSERT_EQUAL_STRING("lastuser1",start->lastname);
+        1:   61:    TEST_ASSERT_EQUAL_STRING("123456789",start->aadhar_num);
+        -:   62:
+        -:   63:
+        1:   64:}
+        -:   65:
+    #####:   66:void test_file_initilizaion(void){
+        -:   67:
+    #####:   68:}
+        -:   69:
+        1:   70:void test_insert(void){
+        -:   71:    // With head
+        1:   72:    id = 2;
+        1:   73:    strcpy(firstname, "testuser2");
+        1:   74:    strcpy(lastname, "lastuser2");
+        1:   75:    strcpy(aadhar_num,"123456789");
+        1:   76:    height = 167.0;
+        1:   77:    weight = 76.1;
+        1:   78:    age = 34;
+        1:   79:    strcpy(date,"12-01-21");
+        1:   80:    insurance = 0;
+        1:   81:    shot = 1;
+        -:   82:
+        1:   83:    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot));
+        1:   83-block  0
+        1:   84:    fseek(f,0,SEEK_END);
+        1:   85:    fwrite(&id,4,1,f);
+        -:   86:
+        1:   87:    id = 3;
+        1:   88:    strcpy(firstname, "testuser3");
+        1:   89:    strcpy(lastname, "lastuser2");
+        1:   90:    strcpy(aadhar_num,"123456789");
+        1:   91:    height = 167.0;
+        1:   92:    weight = 76.1;
+        1:   93:    age = 34;
+        1:   94:    strcpy(date,"12-01-21");
+        1:   95:    insurance = 0;
+        1:   96:    shot = 1;
+        -:   97:
+        1:   98:    TEST_ASSERT_EQUAL(SUCCESS, insert_end(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot));
+        1:   99:    fseek(f,0,SEEK_END);
+        1:  100:    fwrite(&id,4,1,f);
+        -:  101:
+        -:  102:
+        1:  103:}
+        -:  104:
+        1:  105:void check_idx_file_insertion(void){
+        1:  106:    rewind(f);
+        1:  106-block  0
+        1:  107:    TEST_ASSERT_EQUAL(ID_EXISTS,validate_id(&f,1));
+        1:  108:    rewind(f);
+        1:  109:    TEST_ASSERT_EQUAL(ID_EXISTS,validate_id(&f,2));
+        1:  110:    rewind(f);
+        1:  111:    TEST_ASSERT_EQUAL(ID_EXISTS,validate_id(&f,3));
+        1:  112:    rewind(f);
+        1:  113:    TEST_ASSERT_EQUAL(SUCCESS,validate_id(&f,4));
+        -:  114:
+        1:  115:}
+        -:  116:
+        1:  117:void check_file_save(void){
+        1:  118:    int ch = 0;
+        1:  119:    TEST_ASSERT_EQUAL(SUCCESS, saveFile(start, &r, &ch));
+        1:  119-block  0
+        1:  120:}
+        -:  121:
+        1:  122:void check_file_display(void){
+        -:  123:        
+        1:  124:        TEST_ASSERT_EQUAL(SUCCESS, readFile(&r));
+        1:  124-block  0
+        1:  125:}
+        -:  126:
+        1:  127:void check_find_by_id(void){
+        1:  128:        patient res ={0};
+        1:  129:        id = 3;
+        1:  130:        int found = 0;
+        1:  131:        TEST_ASSERT_EQUAL(SUCCESS, find_by_id(start,id,&res,&found));
+        1:  131-block  0
+        1:  132:        TEST_ASSERT_EQUAL(1,found);
+        1:  133:        id = 5;
+        1:  134:        find_by_id(start,id,&res,&found);
+        1:  135:        TEST_ASSERT_EQUAL(0,found);
+        1:  136:}
+        -:  137:
+        1:  138:void check_update_record(void){
+        1:  139:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,1,1));
+        1:  139-block  0
+        1:  140:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,2,1));
+        1:  141:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,3,1));
+        1:  142:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,4,1));
+        1:  143:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,5,1));
+        1:  144:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,6,1));
+        1:  145:    TEST_ASSERT_EQUAL(SUCCESS,update_record(start,2,7,1));
+        -:  146:    
+        1:  147:}
+        -:  148:
+        1:  149:void check_delete_node(void){
+        1:  150:    old_count = 1;
+        -:  151:    patient *ptr;
+        1:  152:    ptr = start;
+        3:  153:    while(ptr->next != NULL){
+        1:  153-block  0
+        3:  153-block  1
+        2:  154:        old_count++;
+        2:  155:        ptr = ptr->next;
+        2:  155-block  0
+        -:  156:    }
+        1:  157:    TEST_ASSERT_EQUAL(3,old_count);
+        1:  157-block  0
+        1:  158:    start = delete_patient(start,3);
+        1:  159:    count = 1;
+        1:  160:    ptr = start;
+        2:  161:    while(ptr->next != NULL){
+        2:  161-block  0
+        1:  162:        count++;
+        1:  163:        ptr = ptr->next;
+        1:  163-block  0
+        -:  164:    }
+        1:  165:    TEST_ASSERT_EQUAL(2,count);
+        1:  165-block  0
+        -:  166:
+        1:  167:}
+        -:  168:
+        1:  169:void check_delete_rec_file(void){
+        1:  170:    id = 1;
+        1:  171:    TEST_ASSERT_EQUAL(SUCCESS, delete_rec_file(&r,&rt,id));
+        1:  171-block  0
+        1:  172:}
+        -:  173:
+        1:  174:void check_delete_idx_file(void){
+        1:  175:    id = 1;
+        1:  176:    TEST_ASSERT_EQUAL(SUCCESS, delete_index_file(&r,&rt,id));
+        1:  176-block  0
+        1:  177:}
+        -:  178:
+        -:  179:
+        -:  180:
+        1:  181:void check_uniq_id(void){
+        1:  182:    id = 10;
+        1:  183:    strcpy(firstname, "testuser2");
+        1:  184:    strcpy(lastname, "lastuser2");
+        1:  185:    strcpy(aadhar_num,"123456789");
+        1:  186:    height = 167.0;
+        1:  187:    weight = 76.1;
+        1:  188:    age = 34;
+        1:  189:    strcpy(date,"12-01-21");
+        1:  190:    insurance = 0;
+        1:  191:    shot = 1;
+        1:  192:    insert_end(start,id,firstname,lastname,aadhar_num,height,weight,age,date,insurance,shot);
+        1:  192-block  0
+        1:  193:    fseek(f,0,SEEK_END);
+        1:  194:    fwrite(&id,4,1,f);
+        -:  195:
+        1:  196:    id = 2;
+        1:  197:    rewind(f);
+        1:  198:    TEST_ASSERT_EQUAL(SUCCESS,validate_id(&f,4));
+        -:  199:    
+        1:  200:}
+        -:  201:
+        -:  202:
+        -:  203: //L_04
+        1:  204:void check_data_loaded_write(void){
+        1:  205:    delete_all(start);
+        1:  205-block  0
+        1:  206:    start = loadData(start, &r);
+       1*:  207:    TEST_ASSERT_NOT_EQUAL(NULL,start);
+    %%%%%:  207-block  0
+        -:  208:
+        1:  209:}
+        -:  210:
+        -:  211:
+        -:  212:
+        -:  213:    
+        -:  214:
+        -:  215:
+        -:  216:
+        -:  217:
+        -:  218:
+        1:  219:int main(void)
+        -:  220:{
+        -:  221:    /* Initiate the Unity Test Framework */
+        1:  222:    UNITY_BEGIN();
+        1:  222-block  0
+        -:  223:
+        -:  224:    /* Run Test functions */
+        1:  225:    RUN_TEST(check_openFile);
+        1:  226:    RUN_TEST(test_create);
+        1:  227:    RUN_TEST(test_insert);
+        1:  228:    RUN_TEST(check_idx_file_insertion);
+        1:  229:    RUN_TEST(check_file_save);
+        1:  230:    RUN_TEST(check_file_display);
+        1:  231:    RUN_TEST(check_find_by_id);
+        1:  232:    RUN_TEST(check_update_record);
+        1:  233:    RUN_TEST(check_delete_node);
+        1:  234:    RUN_TEST(check_delete_rec_file);
+        1:  235:    RUN_TEST(check_delete_idx_file);
+        1:  236:    RUN_TEST(check_uniq_id);
+        1:  237:    RUN_TEST(check_data_loaded_write);
+        -:  238:    
+        -:  239:
+        -:  240:
+        -:  241:    /* Close the Unity Test Framework */
+        1:  242:    return UNITY_END();
+        -:  243:}
+        -:  244:
+        -:  245:
+        -:  246:
+        -:  247://gcc -I inc -I unity unity/unity.c src/create_ll.c src/display_ll.c src/insert_end.c src/delete_box.c src/avg_volume.c src/count_by_color.c src/find_by_id.c src/min_max_v_diff.c src/find_max_height.c src/update_weight.c test/test.c -o testrun.exe   
